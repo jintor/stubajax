@@ -16,9 +16,9 @@ postix["cookies"] = decodeURIComponent(document.cookie); // if you need to send 
           method: "POST", body: JSON.stringify(Object.assign({}, postix)), headers: {"Content-type": "application/json; charset=UTF-8"}
         }).then( response => { return response.text(); }).then( html => { 
             switch ( pend ){
-                case 'append' : $("#"+divid+"_message").append(extraforml+html); break;
-                case 'prepend' : $("#"+divid+"_message").prepend(extraforml+html); break;
-                default : $("#"+divid+"_message").html(extraforml+html); break;
+                case 'append' : $("#"+divid).append(html); break;
+                case 'prepend' : $("#"+divid).prepend(html); break;
+                default : $("#"+divid).html(html); break;
             }
         }).catch( err => console.log(err) );
           
@@ -50,7 +50,13 @@ postix["cookies"] = decodeURIComponent(document.cookie); // if you need to send 
 				  if (done) {
 					controller.close(); return;
 				  }
-				  controller.enqueue(value); $("#"+divid+"_message").append(new TextDecoder().decode(value)); push();
+				  controller.enqueue(value); 
+				  switch ( pend ){
+                			case 'append' : $("#"+divid).append(new TextDecoder().decode(value)); break;
+               			 	case 'prepend' : $("#"+divid).prepend(new TextDecoder().decode(value)); break;
+                			default : $("#"+divid).html(new TextDecoder().decode(value)); break;
+            			  }
+				  push();
 				})
 			  }
 			push();
