@@ -24,7 +24,7 @@ postix["cookies"] = decodeURIComponent(document.cookie); // if you need to send 
           
     }
 
-async function stubajax (divid,phphat,postix = [],pend = 'html') {
+async function stubstreamjax (divid,phphat,postix = [],pend = 'html') {
     
         var pcache = (Math.floor(Math.random() * 100000000) + 1);
         
