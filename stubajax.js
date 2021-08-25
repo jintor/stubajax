@@ -1,3 +1,4 @@
+// THIS FUNCTION WITH DO A FETCH AND WHEN THE PHP FINISHES, THE HTML GET UPDATED
 async function stubajax (divid,phphat,postix = [],pend = 'html') {
     
         var pcache = (Math.floor(Math.random() * 100000000) + 1);
@@ -24,6 +25,7 @@ postix["cookies"] = decodeURIComponent(document.cookie); // if you need to send 
           
     }
 
+// THIS FUNCTION DOES AJAX/HTML STREAMING (ADDS TO HTML WHILE PROCESSING)
 async function stubstreamjax (divid,phphat,postix = [],pend = 'html') {
     
         var pcache = (Math.floor(Math.random() * 100000000) + 1);
